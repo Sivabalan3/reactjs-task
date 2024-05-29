@@ -1,0 +1,28 @@
+import React from 'react';
+
+function ExampleComponent() {
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Prevents the form from being submitted
+    console.log('Form submitted');
+  };
+
+  const handleClickChild = (event) => {
+    event.stopPropagation(); // Stops the click event from bubbling up
+    console.log('Child clicked');
+  };
+
+  const handleClickParent = () => {
+    console.log('Parent clicked');
+  };
+
+  return (
+    <div onClick={handleClickParent}>
+      <form onSubmit={handleSubmit}>
+        <button type="submit">Submit</button>
+      </form>
+      <div onClick={handleClickChild}>Click me</div>
+    </div>
+  );
+}
+
+export default ExampleComponent;
